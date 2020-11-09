@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+      <div class="card">
+        <div class="card-header">
+          <h3><b>{{ itemCount }} todo's in total</b></h3>
+        </div>
+        <div class="row" id="header" *ngIf="itemCount">
+          <div class="col-md">
+            Name
+          </div>
+          <div class="col">
+            Complete
+          </div>
+        </div>
+        <div class="scroll">
+          <div class="row" *ngFor="let todo of todos, let i = index">
+            <div class="col-8">
+              <span>{{todo.title}}</span>
+            </div>
+            <div class="col-2">
+              <span class="material-icons complete" *ngIf="todo.completed == 'complete'">{{completedIcon}}</span>
+              <span class="material-icons incomplete" *ngIf="todo.completed == 'incomplete'">{{incompletedIcon}}</span>
+            </div>
+            <div class="col-2">
+              <span class="material-icons" style="cursor: pointer;" (click)="deleteTodo(todo)">delete_outline</span>
+            </div>
+          </div>
+          <span *ngIf="!itemCount">No more todo items</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h2 class="card-title">Add a todo</h2>
+          <form name="todolistForm" [formGroup]="todolistForm" novalidate>
+            <label>Name</label>
+            <input type="text" class="form-control" formControlName="todoName" placeholder="Get coffee" required>
+            <br>
+            <button type="button" class="btn btn-secondary" (click)="addTodo()">Add</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

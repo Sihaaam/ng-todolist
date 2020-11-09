@@ -1,0 +1,25 @@
+.scroll {
+	overflow: auto;
+	max-height: 384px;
+    margin: 2em 0px 2em 2em;
+    overflow-x: hidden;
+}
+.card {
+    margin: 1em;
+}
+.row {
+    margin-top: 1em;
+}
+#header {
+    margin-left: 6em;
+    font-weight: bold;
+}
+.complete {
+    color: green; 
+    cursor: default;
+}
+.incomplete {
+    font-weight: bold; 
+    color: red; 
+    cursor: default;
+}
